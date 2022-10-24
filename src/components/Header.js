@@ -7,7 +7,7 @@ import { useState } from "react";
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="w-full bg-indigo-700 shadow">
+    <nav className="w-full bg-teal-400 shadow">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -76,7 +76,9 @@ const Header = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li className="text-white text-xl  hover:text-indigo-200">
-                <Link to=""><FaSun/></Link>
+                <Link to="">
+                  <FaSun />
+                </Link>
               </li>
             </ul>
 

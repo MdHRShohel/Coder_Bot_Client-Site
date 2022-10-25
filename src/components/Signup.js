@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Signup = () => {
   return (
-    <div className="mt-5 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+    <div className="mt-5 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-2xl dark:bg-gray-800">
       <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
         Create an Account.
         <br />
@@ -69,7 +69,7 @@ const Signup = () => {
 
         <div className="mt-6">
           <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-            Login
+            Sign Up
           </button>
         </div>
       </form>

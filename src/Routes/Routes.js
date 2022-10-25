@@ -4,7 +4,7 @@ import SignIn from "../components/SignIn";
 import Signup from "../components/Signup";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog";
-import CourseCategories from "../Pages/CourseCategories";
+import CourseDetails from "../Pages/CourseDetails";
 import Courses from "../Pages/Courses";
 import FAQ from "../Pages/FAQ";
 
@@ -30,8 +30,8 @@ export const routes = createBrowserRouter([
         element: <Courses></Courses>,
       },
       {
-        path: "/course-categories/:id",
-        element: <CourseCategories></CourseCategories>,
+        path: "/courses/:id",
+        element: <CourseDetails></CourseDetails>,
       },
       {
         path: "/blog",

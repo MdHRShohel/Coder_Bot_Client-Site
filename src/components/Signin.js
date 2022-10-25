@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 
 const SignIn = () => {
     return (
-      <div className="mt-5 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <div className="mt-5 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-2xl dark:bg-gray-800">
         <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
           Welcome Back!
         </h1>

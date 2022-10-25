@@ -1,8 +1,68 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from "../Context/AuthProvider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Signup = () => {
+
+  const {ProviderLogin, createUser, updateUser } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photoURL = e.target.photoURL.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password, name, photoURL);
+    createUser( email, password)
+    .then( result => {
+      const user = result.user;
+      userUpdateProfile(name, photoURL);
+      console.log(user);
+    })
+    .catch( error => {
+      console.log(error);
+    })
+  };
+
+    const userUpdateProfile = (name,photoURL) => {
+      const profile = {
+        displayName: name,
+        photoURL: photoURL,
+      };
+      return updateUser(profile)
+      .then( () => {
+        console.log('Profile Updated');
+      })
+      .catch( error => {
+        console.log(error);
+      })
+    };
+
+    const googleProvider = new GoogleAuthProvider();
+      const githubProvider = new GithubAuthProvider();
+
+    const handleGoogleSignIn = () => {
+      ProviderLogin(googleProvider)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    
+    const handleGithubSignIn = () => {
+      ProviderLogin(githubProvider)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
   return (
     <div className="md:mt-5 w-full max-w-sm p-6 md:border border-cyan-400 mx-auto bg-white rounded-md shadow-2xl dark:bg-gray-800">
       <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
@@ -10,7 +70,7 @@ const Signup = () => {
         <br />
       </h1>
 
-      <form className="mt-6">
+      <form onSubmit={handleSubmit} className="mt-6">
         <div>
           <label
             htmlFor="name"
@@ -19,6 +79,7 @@ const Signup = () => {
             Full Name
           </label>
           <input
+            name="name"
             type="text"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             required
@@ -32,6 +93,7 @@ const Signup = () => {
             Your Image URL
           </label>
           <input
+            name="photoURL"
             type="text"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
@@ -44,6 +106,7 @@ const Signup = () => {
             Email
           </label>
           <input
+            name="email"
             type="email"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             required
@@ -62,13 +125,17 @@ const Signup = () => {
           </div>
 
           <input
+            name="password"
             type="password"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
 
         <div className="mt-6">
-          <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+          <button
+            type="submit"
+            className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+          >
             Sign Up
           </button>
         </div>
@@ -86,6 +153,7 @@ const Signup = () => {
 
       <div className="flex items-center mt-6 -mx-2">
         <button
+          onClick={handleGoogleSignIn}
           type="button"
           className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
         >
@@ -96,11 +164,14 @@ const Signup = () => {
           <span className="hidden mx-2 sm:inline">Sign in with Google</span>
         </button>
 
-        <Link className="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200">
-          <Link className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-            <FaGithub />
-          </Link>
-        </Link>
+        <button
+          onClick={handleGithubSignIn}
+          className="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200"
+        >
+          <span className="fill-current" viewBox="0 0 24 24">
+            <FaGithub className="w-5 h-5 " />
+          </span>
+        </button>
       </div>
 
       <p className="mt-8 text-xs font-light text-center text-gray-400">

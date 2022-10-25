@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const SignIn = () => {
 
-  const {  ProviderLogin } = useContext(AuthContext);
+  const { ProviderLogin } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleGoogleSignIn = () => {
     ProviderLogin(googleProvider)
@@ -18,7 +19,17 @@ const SignIn = () => {
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
+
+  const handleGithubSignIn = () => {
+    ProviderLogin(githubProvider)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
     return (
       <div className="md:mt-5 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md md:shadow-2xl dark:bg-gray-800 md:border border-cyan-400">
@@ -81,7 +92,8 @@ const SignIn = () => {
         </div>
 
         <div className="flex items-center mt-6 -mx-2">
-          <button onClick={handleGoogleSignIn} 
+          <button
+            onClick={handleGoogleSignIn}
             type="button"
             className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
           >
@@ -92,7 +104,10 @@ const SignIn = () => {
             <span className="hidden mx-2 sm:inline">Sign in with Google</span>
           </button>
 
-          <button className="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200">
+          <button
+            onClick={handleGithubSignIn}
+            className="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200"
+          >
             <Link className="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <FaGithub />
             </Link>

@@ -10,7 +10,12 @@ import { AuthContext } from "../Context/AuthProvider/AuthProvider";
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
 
-    const {user} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut().then(() => {
+            console.log("User Logged Out");
+        });
+    };
 
   return (
     <nav className="w-full bg-teal-400 shadow">
@@ -108,28 +113,39 @@ const Header = () => {
           </div>
         </div>
         <div className="hidden space-x-3 md:flex">
-          <Link
-            to="/signin"
-            className="px-4 py-2 text-white bg-gray-500 rounded-md shadow hover:bg-gray-800"
-          >
-            Sign in
-          </Link>
-          <Link
-            to="/signup"
-            className="px-4 py-2 text-gray-700 bg-white rounded-md shadow hover:bg-gray-100"
-          >
-            Sign up
-          </Link>
+          {user?.uid ? (
+            <h2
+              onClick={handleLogOut}
+              className="px-4 py-2 text-white bg-gray-700 rounded-md shadow hover:bg-orange-800"
+            >
+              Sign Out
+            </h2>
+          ) : (
+            <>
+              <Link
+                to="/signin"
+                className="px-4 py-2 text-white bg-gray-500 rounded-md shadow hover:bg-gray-800"
+              >
+                Sign in
+              </Link>
+              <Link
+                to="/signup"
+                className="px-4 py-2 text-gray-700 bg-white rounded-md shadow hover:bg-gray-100"
+              >
+                Sign up
+              </Link>
+            </>
+          )}
           <div className="gap-2">
             {user?.uid && (
               <div>
                 {user?.photoURL ? (
-                    <img
-                      className="w-10 h-10 text-white rounded-md"
-                      alt="user icon"
-                      title={user?.displayName}
-                      src={user.photoURL}
-                    />
+                  <img
+                    className="w-10 h-10 text-white rounded-md"
+                    alt="user icon"
+                    title={user?.displayName}
+                    src={user.photoURL}
+                  />
                 ) : (
                   <FaUserAlt
                     title={user?.displayName}

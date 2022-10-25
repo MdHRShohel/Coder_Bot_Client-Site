@@ -18,10 +18,7 @@ const CourseCards = () => {
         <span className="text-sm my-4 text-blueGray-700 rounded grid md:grid-cols-2 gap-2   border-blueGray-100">
           {courses.map((course) => (
             <div key={course.id} className="max-w-sm">
-              <Card
-                imgAlt={course.name}
-                imgSrc={course.image}
-              >
+              <Card imgAlt={course.name} imgSrc={course.image}>
                 <Link to={`/courses/${course.id}`}>
                   <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
                     {course.name}

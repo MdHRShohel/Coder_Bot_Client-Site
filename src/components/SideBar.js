@@ -12,7 +12,7 @@ const SideBar = () => {
         }, []);
 
     return (
-      <div className="sticky top-28">
+      <div className="sticky top-32">
         {courses.map((courses) => (
           <Link to={`/courses/${courses.id}`} key={courses.id}>
             <span className="text-lg font-semibold block my-4 p-3 text-blueGray-700 rounded border border-solid border-blueGray-100 hover:bg-teal-400">

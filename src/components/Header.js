@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assets/logo.ico";
 import { FaSun } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Avatar } from "flowbite-react";
+import { FaUserAlt } from "react-icons/fa";
+import { AuthContext } from "../Context/AuthProvider/AuthProvider";
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
+
+    const {user} = useContext(AuthContext);
+
   return (
     <nav className="w-full bg-teal-400 shadow">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -83,6 +89,9 @@ const Header = () => {
             </ul>
 
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
+              <div className="gap-2">
+                <Avatar hover={""} rounded={true} />
+              </div>
               <Link
                 to="/signin"
                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
@@ -98,7 +107,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="hidden space-x-2 md:inline-block">
+        <div className="hidden space-x-3 md:flex">
           <Link
             to="/signin"
             className="px-4 py-2 text-white bg-gray-500 rounded-md shadow hover:bg-gray-800"
@@ -111,6 +120,25 @@ const Header = () => {
           >
             Sign up
           </Link>
+          <div className="gap-2">
+            {user?.uid && (
+              <div>
+                {user?.photoURL ? (
+                    <img
+                      className="w-10 h-10 text-white rounded-md"
+                      alt="user icon"
+                      title={user?.displayName}
+                      src={user.photoURL}
+                    />
+                ) : (
+                  <FaUserAlt
+                    title={user?.displayName}
+                    className="w-10 h-9 text-white rounded-md"
+                  />
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>

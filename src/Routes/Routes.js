@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/Home";
-import SignIn from "../components/SignIn";
-import Signup from "../components/Signup";
+import SignIn from "../Pages/SignIn";
+import Signup from "../Pages/Signup";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog";
 import CourseDetails from "../Pages/CourseDetails";

@@ -4,9 +4,9 @@ import { FaGithub } from "react-icons/fa";
 
 const Signup = () => {
   return (
-    <div className="mt-5 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-2xl dark:bg-gray-800">
+    <div className="md:mt-5 w-full max-w-sm p-6 md:border border-cyan-400 mx-auto bg-white rounded-md shadow-2xl dark:bg-gray-800">
       <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
-        Create an Account.
+        Create an Account
         <br />
       </h1>
 
@@ -29,7 +29,7 @@ const Signup = () => {
             htmlFor="username"
             className="block text-sm text-gray-800 dark:text-gray-200"
           >
-           Your Image URL
+            Your Image URL
           </label>
           <input
             type="text"
@@ -77,9 +77,9 @@ const Signup = () => {
       <div className="flex items-center justify-between mt-4">
         <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-        <Link className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
+        <h2 className="text-xs text-center text-gray-500 uppercase dark:text-gray-400">
           or login with Social Media
-        </Link>
+        </h2>
 
         <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
       </div>

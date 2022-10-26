@@ -22,12 +22,12 @@ const Home = () => {
                 {/* Buttons */}
                 <div className="mt-10 flex flex-col sm:flex-row items-center">
                   <Link to={"/courses"}>
-                    <button className="m-1.5 py-2.5 px-5 rounded-md bg-teal-300 text-white font-semibold uppercase hover:bg-teal-400">
+                    <button className="m-1.5 py-2.5 px-5 rounded-md bg-teal-500 text-white font-semibold uppercase hover:bg-teal-700">
                       Lets Go to Courses
                     </button>
                   </Link>
                   <Link to={"/blog"}>
-                    <button className="m-1.5 py-2.5 px-5 rounded-md border-2 border-gray-300 text-gray-400 font-semibold uppercase hover:text-teal-400 hover:border-teal-400">
+                    <button className="m-1.5 py-2.5 px-5 rounded-md border-2 border-gray-300 text-gray-400 font-semibold uppercase hover:text-teal-500 hover:border-teal-400">
                       See Our Blogs
                     </button>
                   </Link>

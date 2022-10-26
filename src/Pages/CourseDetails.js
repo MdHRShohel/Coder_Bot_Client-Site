@@ -48,11 +48,11 @@ const SingleCourse = () => {
               <Link to="/" className="mb-10">
                 <button
                   onClick={downloadPDF}
-                  className="w-75 flex mx-auto rounded-lg bg-blue-700 px-5 py-2.5 text-center focus: outline-white 
-                    text-xl font-medium text-white hover:bg-blue-800
-                    focus:outline-none focus:ring-4 focus:ring-blue-300
-                    dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800"
+                  className="w-75 flex mx-auto rounded-lg bg-teal-500 px-5 py-2.5 text-center focus: outline-white 
+                    text-xl font-medium text-white hover:bg-teal-800
+                    focus:outline-none focus:ring-4 focus:ring-teal-300
+                    dark:bg-teal-600 dark:hover:bg-teal-700
+                    dark:focus:ring-teal-800"
                 >
                   <FaFileDownload className="h-6 mr-2"></FaFileDownload>{" "}
                   Download Outline
@@ -62,11 +62,11 @@ const SingleCourse = () => {
               <div className="mt-2">
                 <Link to="/checkout" className="">
                   <button
-                    className="w-75 flex mx-auto rounded-lg bg-blue-700 px-5 py-2.5 text-center
-                    text-xl font-medium text-white hover:bg-blue-800
-                    focus:outline-none focus:ring-4 focus:ring-blue-300
-                    dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800"
+                    className="w-75 flex mx-auto rounded-lg bg-teal-500 px-5 py-2.5 text-center
+                    text-xl font-medium text-white hover:bg-teal-700
+                    focus:outline-none focus:ring-4 focus:ring-teal-300
+                    dark:bg-teal-600 dark:hover:bg-teal-700
+                    dark:focus:ring-teal-800"
                   >
                     Get Premium Access!
                   </button>

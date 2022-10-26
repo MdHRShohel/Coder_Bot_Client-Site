@@ -15,7 +15,7 @@ const CourseCards = () => {
             
     return (
       <div className="lg:w-8/12">
-        <span className="text-sm my-4 text-blueGray-700 rounded grid md:grid-cols-2 gap-2   border-blueGray-100">
+        <span className="text-sm my-4 text-tealGray-700 rounded grid md:grid-cols-2 gap-2   border-tealGray-100">
           {courses.map((course) => (
             <div key={course.id} className="max-w-sm">
               <Card imgAlt={course.name} imgSrc={course.image}>
@@ -32,7 +32,7 @@ const CourseCards = () => {
                   {course.description.slice(0, 150)}
                 </p>
                 <div className="mt-2.5 mb-5 flex items-center">
-                  <span className="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm flex  font-semibold text-blue-800 dark:bg-blue-200 dark:text-blue-800">
+                  <span className="mr-2 rounded bg-teal-100 px-2.5 py-0.5 text-sm flex  font-semibold text-teal-800 dark:bg-teal-200 dark:text-teal-800">
                     <svg
                       className="h-5 w-5 text-yellow-300"
                       fill="currentColor"
@@ -50,11 +50,11 @@ const CourseCards = () => {
                   </span>
                   <Link
                     to={`/courses/${course.id}`}
-                    className="rounded-lg bg-blue-700 px-5 py-2.5 text-center
-                    text-sm font-medium text-white hover:bg-blue-800
-                    focus:outline-none focus:ring-4 focus:ring-blue-300
-                    dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800"
+                    className="rounded-lg bg-teal-500 px-5 py-2.5 text-center
+                    text-sm font-medium text-white hover:bg-teal-800
+                    focus:outline-none focus:ring-4 focus:ring-teal-300
+                    dark:bg-teal-600 dark:hover:bg-teal-700
+                    dark:focus:ring-teal-800"
                   >
                     {" "}
                     See Details

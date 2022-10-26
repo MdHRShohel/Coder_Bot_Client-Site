@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
@@ -8,8 +8,12 @@ const Signup = () => {
 
   const {ProviderLogin, createUser, updateUser } = useContext(AuthContext);
 
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
     const name = e.target.name.value;
     const photoURL = e.target.photoURL.value;
     const email = e.target.email.value;
@@ -20,9 +24,12 @@ const Signup = () => {
       const user = result.user;
       userUpdateProfile(name, photoURL);
       console.log(user);
+      setError("");
+      form.reset();
+      navigate('/');
     })
     .catch( error => {
-      console.log(error);
+      setError(error.message);
     })
   };
 
@@ -33,10 +40,12 @@ const Signup = () => {
       };
       return updateUser(profile)
       .then( () => {
-        console.log('Profile Updated');
+        //console.log('Profile Updated');
+        setError("");
+        navigate('/');
       })
       .catch( error => {
-        console.log(error);
+        setError(error.message);
       })
     };
 
@@ -47,9 +56,11 @@ const Signup = () => {
       ProviderLogin(googleProvider)
         .then((result) => {
           console.log(result.user);
+          setError("");
+          navigate("/");
         })
         .catch((error) => {
-          console.log(error);
+          setError(error.message);
         });
     };
     
@@ -57,14 +68,16 @@ const Signup = () => {
       ProviderLogin(githubProvider)
         .then((result) => {
           console.log(result.user);
+          setError("");
+          navigate("/");
         })
         .catch((error) => {
-          console.log(error);
+         setError(error.message);
         });
     };
 
   return (
-    <div className="md:mt-5 w-full max-w-sm p-6 md:border border-cyan-400 mx-auto bg-white rounded-md shadow-2xl dark:bg-gray-800">
+    <div className="md:mt-5 w-full max-w-sm p-6 md:border border-cyan-400 mx-auto bg-white rounded-md md:shadow-2xl dark:bg-gray-800">
       <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
         Create an Account
         <br />
@@ -132,6 +145,11 @@ const Signup = () => {
         </div>
 
         <div className="mt-6">
+          <p className="mb-2 
+          text-orange-500 text-center text-sm font-semibold
+          dark:border-gray-400">
+            {error}
+          </p>
           <button
             type="submit"
             className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"

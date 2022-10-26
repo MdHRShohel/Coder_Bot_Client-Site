@@ -7,6 +7,7 @@ import Blog from "../Pages/Blog";
 import CourseDetails from "../Pages/CourseDetails";
 import Courses from "../Pages/Courses";
 import FAQ from "../Pages/FAQ";
+import CheckOut from "../Pages/CheckOut";
 
 export const routes = createBrowserRouter([
   {
@@ -32,10 +33,16 @@ export const routes = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
       },
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/checkout",
+        element: <CheckOut></CheckOut>,
       },
       {
         path: "/faq",

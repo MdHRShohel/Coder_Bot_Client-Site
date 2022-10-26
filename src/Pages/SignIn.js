@@ -1,23 +1,45 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-
 const SignIn = () => {
-
-  const { ProviderLogin } = useContext(AuthContext);
+  
+  const { ProviderLogin, signInWithMailPass } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    //console.log(email, password);
+    signInWithMailPass(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setError("");
+        form.reset();
+        navigate('/');
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
   const handleGoogleSignIn = () => {
     ProviderLogin(googleProvider)
       .then((result) => {
         console.log(result.user);
+        setError("");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 
@@ -25,9 +47,11 @@ const SignIn = () => {
     ProviderLogin(githubProvider)
       .then((result) => {
         console.log(result.user);
+        setError("");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 
@@ -37,7 +61,7 @@ const SignIn = () => {
           Welcome Back!
         </h1>
 
-        <form className="mt-6">
+        <form onSubmit={handleSubmit} className="mt-6">
           <div>
             <label
               htmlFor="email"
@@ -75,7 +99,14 @@ const SignIn = () => {
           </div>
 
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+            <p
+              className="mb-2 
+          text-orange-500 text-center text-sm font-semibold
+          dark:border-gray-400"
+            >
+              {error}
+            </p>
+            <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Login
             </button>
           </div>

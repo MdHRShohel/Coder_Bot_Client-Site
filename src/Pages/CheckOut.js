@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../Context/AuthProvider/AuthProvider";
 
 const CheckOut = () => {
+    const {user} = useContext(AuthContext);
+    //console.log(user);
     const CheckOutPayment = () => {
     }
 
@@ -19,25 +22,22 @@ const CheckOut = () => {
             Name
           </label>
           <input
-            placeholder="This is a placeholder"
+            defaultValue={user.displayName}
             name="name"
             type="text"
+            readOnly
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm text-gray-800 dark:text-gray-200"
-          >
+          <label className="block text-sm text-gray-800 dark:text-gray-200">
             Email Address
           </label>
           <input
             name="email"
             type="text"
-            placeholder="This is your email address"
+            placeholder="e.g. md.hrshohel@gmail.com"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            readOnly
           />
         </div>
         <div>
@@ -72,10 +72,8 @@ const CheckOut = () => {
 
         <div className="mt-4">
           <div>
-            <label
-              className="block text-sm text-gray-800 dark:text-gray-200"
-            >
-             Card Holder Name
+            <label className="block text-sm text-gray-800 dark:text-gray-200">
+              Card Holder Name
             </label>
             <input
               placeholder="Shahriar Ahmed"
@@ -112,20 +110,19 @@ const CheckOut = () => {
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
-        <div class="flex items-center mb-4 mt-4">
+        <div className="flex items-center mb-4 mt-4">
           <input
-            checked
-            id="checkbox-1"
+            defaultChecked
             type="checkbox"
             value=""
-            class="w-4  h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4  h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
           <label
             for="checkbox-1"
-            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
             I agree to the{" "}
-            <span class="text-blue-600 hover:underline dark:text-blue-500">
+            <span className="text-blue-600 hover:underline dark:text-blue-500">
               terms and conditions.
             </span>
           </label>

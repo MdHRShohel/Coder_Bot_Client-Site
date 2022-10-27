@@ -60,7 +60,7 @@ const SingleCourse = () => {
               </Link>
 
               <div className="mt-2">
-                <Link to="/checkout" className="">
+                <Link to={`/checkout/${course.id}`}>
                   <button
                     className="w-75 flex mx-auto rounded-lg bg-teal-500 px-5 py-2.5 text-center
                     text-xl font-medium text-white hover:bg-teal-700

@@ -1,17 +1,24 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider/AuthProvider";
 
 const CheckOut = () => {
+    const course = useLoaderData();
     const {user} = useContext(AuthContext);
-    //console.log(user);
-    const CheckOutPayment = () => {
-      
+    //console.log(course);
+    const navigate = useNavigate();
+
+    const CheckOutPayment = (e) => {
+      e.preventDefault();
+      toast.success("Payment Successful");
+      navigate("/");
     }
 
   return (
-    <div className="md:mt-5 w-full max-w-sm p-6 md:border border-teal-400 mx-auto bg-white rounded-md md:shadow-2xl dark:bg-gray-800">
-      <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
-        CheckOut
+    <div className="md:mt-5 mb-4 w-full max-w-sm p-6 md:border border-teal-400 mx-auto bg-white rounded-md md:shadow-2xl dark:bg-gray-800">
+      <h1 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
+        Check Out of {course.name}
         <br />
       </h1>
       <form onSubmit={CheckOutPayment} className="mt-6">
@@ -143,7 +150,8 @@ const CheckOut = () => {
             Check Out
           </button>
         </div>
-      </form>
+      </form>      
+
     </div>
   );
 };

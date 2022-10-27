@@ -9,6 +9,7 @@ import Courses from "../Pages/Courses";
 import FAQ from "../Pages/FAQ";
 import CheckOut from "../Pages/CheckOut";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 export const routes = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ export const routes = createBrowserRouter([
         path: "/faq",
         element: <FAQ></FAQ>,
       },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
+      }
     ],
   },
 ]);

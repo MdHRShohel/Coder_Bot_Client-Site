@@ -49,7 +49,7 @@ const AuthProvider = ({children}) => {
       createUser,
       updateUser,
       signInWithMailPass,
-        loading,
+      loading,
     };
     return (
         <AuthContext.Provider value={ authInfo }>

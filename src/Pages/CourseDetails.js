@@ -1,21 +1,13 @@
 import { FaFileDownload } from "react-icons/fa";
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import jsPDF  from "jspdf";
 
 const SingleCourse = () => {
   const course = useLoaderData();
   //console.log(course);
 
     const downloadPDF = () => {
-        const doc = new jsPDF('landscape','px','a4','false');
-        doc.html(document.querySelector("#pdf"), {
-            callback: function (doc) {
-                doc.save("course.pdf");
-            },
-            x: 10,
-            y: 10,
-        });
+      
     };
 
 

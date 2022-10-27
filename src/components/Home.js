@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Feature } from './Feature';
+import { Team } from './Team';
 
 const Home = () => {
     return (
       <div>
-        <div className="relative w-full h-full flex flex-col justify-center items-center bg-gray-50 overflow-hidden">
-          <div className="pt-10 sm:pt-20 lg:pt-40 w-full flex flex-col lg:flex-row">
+        <div className="relative w-screen min-h-screen flex flex-col justify-center items-center bg-gray-50 overflow-hidden">
+          <div className="lg:pt-0 w-full flex flex-col lg:flex-row">
             {/* :HERO MAIN */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600">
               {" "}
               {/* Container */}
               {/* ::Hero Inner */}
-              <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+              <div className="p-5 md:pl-16 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 {/* Hero Title */}
                 <h1 className="py-10 text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
                   Develop Coding skills.
@@ -44,6 +46,8 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <Feature></Feature>
+        <Team></Team>
       </div>
     );
 };

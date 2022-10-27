@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
-import SignIn from "../Pages/SignIn";
-import Signup from "../Pages/Signup";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog";
+import CheckOut from "../Pages/CheckOut";
 import CourseDetails from "../Pages/CourseDetails";
 import Courses from "../Pages/Courses";
 import FAQ from "../Pages/FAQ";
-import CheckOut from "../Pages/CheckOut";
+import SignIn from "../Pages/SignIn";
+import Signup from "../Pages/Signup";
 import PrivateRoute from "./PrivateRoute";
-import ErrorPage from "../components/ErrorPage";
 
 export const routes = createBrowserRouter([
   {
@@ -36,12 +36,12 @@ export const routes = createBrowserRouter([
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://coder-bot-server.vercel.app/courses/${params.id}`),
       },
       {
         path: "/blog",
         element: <Blog></Blog>,
-        loader: () => fetch(`http://localhost:5000/blog`),
+        loader: () => fetch(`https://coder-bot-server.vercel.app/blog`),
       },
       {
         path: "/checkout/:id",
@@ -51,7 +51,7 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://coder-bot-server.vercel.app/courses/${params.id}`),
       },
       {
         path: "/faq",

@@ -15,7 +15,7 @@ const CourseCards = () => {
             
     return (
       <div className="lg:w-8/12">
-        <span className="text-sm my-4 text-tealGray-700 rounded grid md:grid-cols-2 gap-2   border-tealGray-100">
+        <span className="text-sm my-4 text-tealGray-700 rounded grid md:grid-cols-2 lg:grid-cols-3 gap-2   border-tealGray-100">
           {courses.map((course) => (
             <div key={course.id} className="max-w-sm">
               <Card imgAlt={course.name} imgSrc={course.image}>
@@ -29,7 +29,7 @@ const CourseCards = () => {
                 
                 dark:text-gray-400"
                 >
-                  {course.description.slice(0, 150)}
+                  {course.description.slice(0, 200)}
                 </p>
                 <div className="mt-2.5 mb-5 flex items-center">
                   <span className="mr-2 rounded bg-teal-100 px-2.5 py-0.5 text-sm flex  font-semibold text-teal-800 dark:bg-teal-200 dark:text-teal-800">

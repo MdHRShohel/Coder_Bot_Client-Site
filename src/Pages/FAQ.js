@@ -1,144 +1,65 @@
+import { Accordion } from 'flowbite-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const FAQ = () => {
     return (
-      <div>
-        <section className="bg-white dark:bg-gray-900">
-          <div className="container px-6 py-10 mx-auto">
-            <h1 className="text-3xl text-center font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
-              Welcome to FAQ
-            </h1>
-
-            <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-              <div className="lg:flex">
-                <img
-                  className="object-cover w-full h-56 rounded-lg lg:w-64"
-                  src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt=""
-                />
-
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <Link
-                    href="#"
-                    className="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
-                  >
-                    How to use sticky note for problem solving
-                  </Link>
-
-                  <span className="text-sm text-gray-500 dark:text-gray-300">
-                    On: 20 October 2019
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:flex">
-                <img
-                  className="object-cover w-full h-56 rounded-lg lg:w-64"
-                  src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt=""
-                />
-
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <Link
-                    href="#"
-                    className="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
-                  >
-                    How to use sticky note for problem solving
-                  </Link>
-
-                  <span className="text-sm text-gray-500 dark:text-gray-300">
-                    On: 20 October 2019
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:flex">
-                <img
-                  className="object-cover w-full h-56 rounded-lg lg:w-64"
-                  src="https://images.unsplash.com/photo-1544654803-b69140b285a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt=""
-                />
-
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <Link
-                    href="#"
-                    className="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
-                  >
-                    Morning routine to boost your mood
-                  </Link>
-
-                  <span className="text-sm text-gray-500 dark:text-gray-300">
-                    On: 25 November 2020
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:flex">
-                <img
-                  className="object-cover w-full h-56 rounded-lg lg:w-64"
-                  src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1547&q=80"
-                  alt=""
-                />
-
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <Link
-                    href="#"
-                    className="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
-                  >
-                    All the features you want to know
-                  </Link>
-
-                  <span className="text-sm text-gray-500 dark:text-gray-300">
-                    On: 30 September 2020
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:flex">
-                <img
-                  className="object-cover w-full h-56 rounded-lg lg:w-64"
-                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80"
-                  alt=""
-                />
-
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <Link
-                    href="#"
-                    className="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
-                  >
-                    Minimal workspace for your inspirations
-                  </Link>
-
-                  <span className="text-sm text-gray-500 dark:text-gray-300">
-                    On: 13 October 2019
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:flex">
-                <img
-                  className="object-cover w-full h-56 rounded-lg lg:w-64"
-                  src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt=""
-                />
-
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <Link
-                    href="#"
-                    className="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
-                  >
-                    What do you want to know about Blockchane
-                  </Link>
-
-                  <span className="text-sm text-gray-500 dark:text-gray-300">
-                    On: 20 October 2019
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className="w-3/4 mx-auto mt-8 mb-10">
+        <Accordion>
+          <Accordion.Panel>
+            <Accordion.Title>What is Coder Bot?</Accordion.Title>
+            <Accordion.Content>
+              <p className="mb-2 text-gray-500 dark:text-gray-400">
+                Well, Coder Bot is an innovative new form of short-term,
+                intensive, and often immersive education designed to provide
+                aspiring tech enthusiasts and professionals the skills they need
+                to start careers in software engineering and other tech fields.
+                Learning to code is an integral part of most courses. At the end
+                of your coding program, you’ll be proficient in essential
+                programming languages and frameworks.
+              </p>
+              <p className="text-gray-500 dark:text-gray-400">
+                Check out this guide to learn how to and start developing
+                websites even faster with components on top of Tailwind CSS.
+              </p>
+            </Accordion.Content>
+          </Accordion.Panel>
+          <Accordion.Panel>
+            <Accordion.Title>
+              How Long Does It Take to Learn Web Development?
+            </Accordion.Title>
+            <Accordion.Content>
+              <p className="mb-2 text-gray-500 dark:text-gray-400">
+                Pursuing a college degree in web development, computer science,
+                or computer programming takes 8-10 months, depending on whether
+                you get an associate degree or a bachelor's degree. This is the
+                longest path to becoming a web developer.
+              </p>
+            </Accordion.Content>
+          </Accordion.Panel>
+          <Accordion.Panel>
+            <Accordion.Title>
+              Is artificial intelligence good course?
+            </Accordion.Title>
+            <Accordion.Content>
+              <p className="mb-2 text-gray-500 dark:text-gray-400">
+                Becoming an expert in AI will enable you to challenge current
+                ways of working and change the way you perceive most things.
+                Highlighting yourself as someone who strives for positive
+                change, as well as an eagerness to learn the latest technologies
+                could take you a long way in your career.The goal is to create
+                computer intelligence programmes that can handle real-time
+                problems and help organizations and everyday people achieve
+                their goals. Machine games, speech recognition, language
+                detection, computer vision, expert systems, robotics, and other fields have potential.
+              </p>
+              <p className="mb-2 text-gray-500 dark:text-gray-400">
+                However, we actually recommend using both Flowbite, Flowbite
+                Pro, and even Tailwind UI as there is no technical reason
+                stopping you from using the best of two worlds.
+              </p>
+            </Accordion.Content>
+          </Accordion.Panel>
+        </Accordion>
       </div>
     );
 };

@@ -1,5 +1,5 @@
 
-# Project Name is Hero Quizzes
+# Project Name is CODER BOT
 
 ## Live Website Link is [CODER BOT](https://coder-bot.web.app/)
 

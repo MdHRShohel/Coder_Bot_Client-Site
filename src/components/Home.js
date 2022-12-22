@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CourseHome from './CourseHome';
 import { Feature } from './Feature';
 import { Team } from './Team';
 
@@ -46,6 +47,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <CourseHome></CourseHome>
         <Feature></Feature>
         <Team></Team>
       </div>
